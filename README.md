@@ -12,6 +12,10 @@ SpaceX advertises Falcon 9 rocket launches at **$62 million**, substantially low
 
 In this capstone project, we build a full data science pipeline to predict whether the Falcon 9 first stage will land successfully (`Class = 1`) or be lost (`Class = 0`). By determining the probability of a successful booster landing based on flight parameters (payload mass, launch site, target orbit, booster serial, and launch year), commercial launch providers and competitors can evaluate launch economics and price competitive launch bids with data-driven confidence.
 
+<p align="center">
+  <img src="diagram.png" alt="SpaceX Capstone Architecture Diagram" width="750"/>
+</p>
+
 ---
 
 ## Methodology & Architecture
@@ -85,9 +89,11 @@ Across test data (18 observations), all four models demonstrated identical evalu
 
 ```
 ├── Data Science Capstone Project Report.pdf    # Comprehensive 8-page Capstone Presentation Report
-├── SpaceX Falcon 9 Capstone Project Report.pdf # Original Capstone slide deck document
-├── spacex_dash_app.py                          # Interactive Plotly Dash dashboard application
+├── diagram.png                                 # End-to-end pipeline & system architecture diagram
+├── spacex_dash_app.py                          # Modern SpaceX Mission Control Plotly Dash dashboard
 ├── spacex_launch_dash.csv                      # Dataset supporting the Dash application
+├── assets/                                     # Custom CSS & Space-grade Mission Control theme
+│   └── custom.css                              # Glassmorphism, animations, and custom UI/UX styling
 ├── Data_Collection_Web_Scraping.ipynb          # Web scraping Wikipedia launch records
 ├── EDA_Data_Visualization.ipynb                # Exploratory Data Analysis & visual discoveries
 ├── Interactive_Visual_Analytics_Folium.ipynb   # Geospatial mapping & proximity analysis

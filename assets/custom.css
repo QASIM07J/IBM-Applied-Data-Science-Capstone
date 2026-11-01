@@ -1,0 +1,387 @@
+/* SpaceX Mission Control Theme */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root {
+  --bg-primary: #07090E;
+  --bg-card: rgba(15, 23, 42, 0.75);
+  --bg-card-hover: rgba(22, 34, 60, 0.85);
+  --border-color: rgba(255, 255, 255, 0.08);
+  --border-glow: rgba(0, 229, 255, 0.25);
+  --accent-cyan: #00E5FF;
+  --accent-blue: #3B82F6;
+  --accent-green: #00E676;
+  --accent-red: #FF3366;
+  --accent-gold: #FFB800;
+  --text-main: #F1F5F9;
+  --text-muted: #94A3B8;
+  --text-dim: #64748B;
+
+  /* Dash 4 Native Theme Variables */
+  --Dash-Fill-Inverse-Strong: #0F172A !important;
+  --Dash-Stroke-Strong: rgba(255, 255, 255, 0.16) !important;
+  --Dash-Text-Strong: #F8FAFC !important;
+  --Dash-Fill-Interactive-Strong: #00E5FF !important;
+  --Dash-Text-Disabled: #64748B !important;
+  --Dash-Fill-Disabled: rgba(255, 255, 255, 0.12) !important;
+  --Dash-Shading-Strong: rgba(0, 0, 0, 0.6) !important;
+  --Dash-Shading-Weak: rgba(0, 0, 0, 0.3) !important;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg-primary);
+  background-image: 
+    radial-gradient(circle at 15% 10%, rgba(0, 229, 255, 0.05) 0%, transparent 40%),
+    radial-gradient(circle at 85% 80%, rgba(59, 130, 246, 0.05) 0%, transparent 40%),
+    radial-gradient(circle at 50% 50%, rgba(15, 23, 42, 0.5) 0%, transparent 100%);
+  color: var(--text-main);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0B0F17;
+}
+::-webkit-scrollbar-thumb {
+  background: #1E293B;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #334155;
+}
+
+/* Glassmorphism Card Container */
+.mission-card {
+  background: var(--bg-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  overflow: hidden;
+}
+
+.mission-card:hover {
+  border-color: rgba(255, 255, 255, 0.16);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.45);
+}
+
+/* Metric / KPI Card */
+.kpi-card {
+  padding: 20px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+}
+
+.kpi-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--border-glow), transparent);
+  opacity: 0.7;
+}
+
+.kpi-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.kpi-value {
+  font-family: 'JetBrains Mono', 'Space Grotesk', monospace;
+  font-size: 2.2rem;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.kpi-subtitle {
+  font-size: 0.8rem;
+  color: var(--text-dim);
+  margin-top: 6px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Pulsing Online Indicator */
+.pulse-dot {
+  width: 8px;
+  height: 8px;
+  background-color: var(--accent-green);
+  border-radius: 50%;
+  display: inline-block;
+  box-shadow: 0 0 10px var(--accent-green);
+  animation: pulse-glow 2s infinite;
+}
+
+@keyframes pulse-glow {
+  0% {
+    box-shadow: 0 0 0 0 rgba(0, 230, 118, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 8px rgba(0, 230, 118, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(0, 230, 118, 0);
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/* Dash 4.x Native Dropdown (dash-dropdown) Dark Mode Overrides */
+/* -------------------------------------------------------------------------- */
+.dash-dropdown,
+.dash-dropdown-trigger {
+  background: #0F172A !important;
+  background-color: #0F172A !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  border-radius: 10px !important;
+  color: #F8FAFC !important;
+  min-height: 44px !important;
+  font-family: 'Inter', sans-serif !important;
+  font-size: 0.92rem !important;
+  transition: all 0.2s ease !important;
+}
+
+.dash-dropdown:hover,
+.dash-dropdown-trigger:hover {
+  border-color: var(--accent-cyan) !important;
+}
+
+.dash-dropdown:focus,
+.dash-dropdown-trigger:focus,
+.dash-dropdown-trigger[data-state='open'] {
+  border-color: var(--accent-cyan) !important;
+  box-shadow: 0 0 12px rgba(0, 229, 255, 0.25) !important;
+}
+
+.dash-dropdown-value,
+.dash-dropdown-value-item {
+  color: #F8FAFC !important;
+  font-size: 0.92rem !important;
+  font-weight: 500 !important;
+}
+
+.dash-dropdown-placeholder {
+  color: #94A3B8 !important;
+  font-size: 0.92rem !important;
+}
+
+.dash-dropdown-trigger-icon {
+  color: #94A3B8 !important;
+  fill: #94A3B8 !important;
+}
+
+.dash-dropdown-content {
+  background: #0F172A !important;
+  background-color: #0F172A !important;
+  border: 1px solid rgba(0, 229, 255, 0.35) !important;
+  border-radius: 10px !important;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.8) !important;
+  color: #F8FAFC !important;
+  overflow: hidden !important;
+  z-index: 9999 !important;
+}
+
+.dash-dropdown-options {
+  background: #0F172A !important;
+  padding: 6px !important;
+}
+
+.dash-dropdown-option {
+  color: #E2E8F0 !important;
+  background: transparent !important;
+  padding: 10px 14px !important;
+  font-size: 0.9rem !important;
+  border-radius: 6px !important;
+  cursor: pointer !important;
+  transition: all 0.15s ease !important;
+}
+
+.dash-dropdown-option:hover,
+.dash-dropdown-option[data-highlighted] {
+  background: rgba(0, 229, 255, 0.18) !important;
+  color: #00E5FF !important;
+}
+
+.dash-dropdown-option.selected,
+.dash-dropdown-option[data-state='checked'] {
+  background: rgba(0, 229, 255, 0.28) !important;
+  color: #FFFFFF !important;
+  font-weight: 600 !important;
+}
+
+.dash-dropdown-search {
+  background: #0B1120 !important;
+  color: #F8FAFC !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+  padding: 10px 14px !important;
+}
+
+/* Legacy react-select fallbacks */
+.Select-control {
+  background-color: #0F172A !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  border-radius: 10px !important;
+  color: #F8FAFC !important;
+  min-height: 44px !important;
+}
+.Select-placeholder,
+.Select-value-label,
+.Select--single > .Select-control .Select-value {
+  color: #F8FAFC !important;
+  line-height: 44px !important;
+}
+.Select-menu-outer {
+  background-color: #0F172A !important;
+  border: 1px solid rgba(0, 229, 255, 0.3) !important;
+  color: #F8FAFC !important;
+}
+.Select-option {
+  background-color: #0F172A !important;
+  color: #E2E8F0 !important;
+}
+.Select-option:hover, .Select-option.is-focused {
+  background-color: rgba(0, 229, 255, 0.18) !important;
+  color: #00E5FF !important;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Dash 4.x Native Slider (dash-slider) Dark Mode Overrides */
+/* -------------------------------------------------------------------------- */
+.dash-slider-track {
+  background-color: rgba(255, 255, 255, 0.14) !important;
+  height: 6px !important;
+}
+
+.dash-slider-range {
+  background: linear-gradient(90deg, #00E5FF, #3B82F6) !important;
+  height: 6px !important;
+  box-shadow: 0 0 10px rgba(0, 229, 255, 0.4) !important;
+}
+
+.dash-slider-thumb {
+  background-color: #07090E !important;
+  border: 2px solid #00E5FF !important;
+  box-shadow: 0 0 12px rgba(0, 229, 255, 0.9) !important;
+  width: 18px !important;
+  height: 18px !important;
+}
+
+.dash-slider-thumb:hover,
+.dash-slider-thumb:focus {
+  transform: scale(1.25) !important;
+  box-shadow: 0 0 18px #00E5FF !important;
+  outline: none !important;
+}
+
+/* High-contrast slider marks */
+.dash-slider-mark {
+  color: #CBD5E1 !important;
+  font-family: 'JetBrains Mono', monospace !important;
+  font-size: 0.78rem !important;
+  font-weight: 500 !important;
+  margin-top: 6px !important;
+}
+
+.dash-slider-mark-outside-selection {
+  color: #64748B !important;
+}
+
+/* Slider numerical input boxes */
+.dash-range-slider-input {
+  background-color: #0F172A !important;
+  border: 1px solid rgba(0, 229, 255, 0.3) !important;
+  color: #00E5FF !important;
+  font-family: 'JetBrains Mono', monospace !important;
+  font-size: 0.85rem !important;
+  font-weight: 600 !important;
+  border-radius: 8px !important;
+  padding: 4px 8px !important;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.4) !important;
+}
+
+.dash-range-slider-input:focus {
+  border-color: #00E5FF !important;
+  outline: 1px solid #00E5FF !important;
+  box-shadow: 0 0 10px rgba(0, 229, 255, 0.3) !important;
+}
+
+/* Legacy rc-slider styles */
+.rc-slider-rail {
+  background-color: rgba(255, 255, 255, 0.14) !important;
+  height: 6px !important;
+}
+.rc-slider-track {
+  background: linear-gradient(90deg, #00E5FF, #3B82F6) !important;
+  height: 6px !important;
+}
+.rc-slider-handle {
+  border: 2px solid #00E5FF !important;
+  background-color: #07090E !important;
+  box-shadow: 0 0 12px rgba(0, 229, 255, 0.8) !important;
+}
+.rc-slider-mark-text {
+  color: #CBD5E1 !important;
+  font-family: 'JetBrains Mono', monospace !important;
+  font-size: 0.78rem !important;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Mission Log Table Styling */
+/* -------------------------------------------------------------------------- */
+.dash-table-container {
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.dash-spreadsheet-container .dash-spreadsheet-inner th {
+  background-color: #0B1120 !important;
+  color: #94A3B8 !important;
+  font-family: 'Space Grotesk', sans-serif !important;
+  font-weight: 600 !important;
+  font-size: 0.8rem !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.08em !important;
+  border: none !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12) !important;
+  padding: 14px 16px !important;
+}
+
+.dash-spreadsheet-container .dash-spreadsheet-inner td {
+  background-color: transparent !important;
+  color: #E2E8F0 !important;
+  font-size: 0.88rem !important;
+  border: none !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+  padding: 12px 16px !important;
+  font-family: 'Inter', sans-serif !important;
+}
+
+.dash-spreadsheet-container .dash-spreadsheet-inner tr:hover td {
+  background-color: rgba(255, 255, 255, 0.04) !important;
+}
